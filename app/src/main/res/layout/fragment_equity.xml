@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        >
+        <TextView
+            android:id="@+id/kr_equity_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="股权投资"
+            android:textSize="20dp"
+            android:layout_centerInParent="true"/>
+<ImageButton
+    android:id="@+id/kr_equity_search"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="#00000000"
+    android:src="@mipmap/nav_icon_search"
+    android:layout_alignParentRight="true"
+    />
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+          android:layout_toLeftOf="@+id/kr_equity_search"
+            android:background="#00000000"
+            android:src="@mipmap/nav_icon_activity"
+            />
+
+    </RelativeLayout>
+    <Button
+        android:background="#FF9999"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/kr_equity_download"
+        android:text="功能即将转移,点击下载股权投资专属App"
+        android:textColor="#FF9900"
+        android:drawableRight="@mipmap/equity_list_icon_arrow"
+        />
+    <android.support.design.widget.TabLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/kr_equity_tab">
+    </android.support.design.widget.TabLayout>
+    <android.support.v4.view.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/kr_equity_viewpager">
+
+    </android.support.v4.view.ViewPager>
+
+</LinearLayout>
