@@ -1,12 +1,12 @@
-package com.example.dllo.testdemo.Fragment;
+package com.example.dllo.testdemo.fragment;
 
 import android.graphics.Color;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 
-import com.example.dllo.testdemo.Adapter.EquityAdapter;
-import com.example.dllo.testdemo.Base.BaseFragment;
+import com.example.dllo.testdemo.adapter.EquityAdapter;
+import com.example.dllo.testdemo.base.BaseFragment;
 import com.example.dllo.testdemo.R;
 
 import java.util.ArrayList;

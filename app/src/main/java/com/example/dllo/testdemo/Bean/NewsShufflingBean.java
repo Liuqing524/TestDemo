@@ -1,4 +1,4 @@
-package com.example.dllo.testdemo.Bean;
+package com.example.dllo.testdemo.bean;
 
 import java.util.List;
 

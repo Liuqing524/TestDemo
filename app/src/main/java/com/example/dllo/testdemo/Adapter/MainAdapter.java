@@ -1,4 +1,4 @@
-package com.example.dllo.testdemo.Adapter;
+package com.example.dllo.testdemo.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

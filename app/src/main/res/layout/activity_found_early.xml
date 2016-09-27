@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <ImageButton
+        android:id="@+id/found_early_imagebtn_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/news_toolbar_icon_back"
+        android:layout_margin="10dp"
+        android:background="#00000000"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="近期活动"
+            android:textSize="20dp"
+            android:textColor="#000"
+            android:layout_centerInParent="true"/>
+
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/found_btn_early_type"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="活动类型"
+            android:drawableRight="@mipmap/icon_down"
+            android:gravity="center|left"
+            android:background="#00000000"
+            android:paddingRight="60dp"
+            android:paddingLeft="50dp"/>
+        <Button
+            android:id="@+id/found_btn_early_time"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#00000000"
+            android:text="活动时间"
+            android:gravity="center|left"
+            android:paddingLeft="50dp"
+            android:paddingRight="60dp"
+            android:drawableRight="@mipmap/icon_down"/>
+    </LinearLayout>
+    <ListView
+        android:id="@+id/found_early_listview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        ></ListView>
+</LinearLayout>

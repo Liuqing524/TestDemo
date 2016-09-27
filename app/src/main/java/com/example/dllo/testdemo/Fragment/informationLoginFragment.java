@@ -1,6 +1,6 @@
-package com.example.dllo.testdemo.Fragment;
+package com.example.dllo.testdemo.fragment;
 
-import com.example.dllo.testdemo.Base.BaseFragment;
+import com.example.dllo.testdemo.base.BaseFragment;
 import com.example.dllo.testdemo.R;
 
 /**

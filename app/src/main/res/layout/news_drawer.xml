@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="170dp"
+    android:layout_height="match_parent"
+    android:id="@+id/kr_news_ll"
+    android:background="#fff">
+    <ImageButton
+        android:id="@+id/kr_news_drawer_ib"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/common_nav_icon_back"
+        android:background="#fff"
+        android:layout_margin="10dp"/>
+    <Button
+
+        android:layout_marginTop="20dp"
+        android:id="@+id/kr_news_drawer_btn_all"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:text="全部"/>
+    <Button
+        android:id="@+id/kr_news_drawer_btn_eraly"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:text="早期项目"/>
+    <Button
+        android:id="@+id/kr_news_drawer_btn_height"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:text="深度"
+        />
+    <Button
+        android:id="@+id/kr_news_drawer_btn_big"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:text="大公司"/>
+    <Button
+        android:id="@+id/kr_news_drawer_btn_eight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:text="8点1氪"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:text="人物"
+        android:id="@+id/kr_news_drawer_btn_people"/>
+    <Button
+        android:id="@+id/kr_news_drawer_btn_friend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="氪友"
+        android:background="#fff"/>
+    <Button
+        android:id="@+id/kr_news_drawer_btn_serach"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="研究"
+        android:background="#fff"/>
+
+</LinearLayout>

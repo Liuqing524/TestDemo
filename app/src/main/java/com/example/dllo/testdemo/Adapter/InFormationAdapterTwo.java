@@ -1,4 +1,4 @@
-package com.example.dllo.testdemo.Adapter;
+package com.example.dllo.testdemo.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -9,17 +9,17 @@ import java.util.ArrayList;
 /**
  * Created by dllo on 16/9/19.
  */
-public class InFormationAdapter extends FragmentPagerAdapter{
+public class InFormationAdapterTwo extends FragmentPagerAdapter{
     ArrayList<String> titleArr = new ArrayList<>();
     ArrayList<Fragment> fragments;
-    public InFormationAdapter(FragmentManager fm , ArrayList<Fragment> fragments) {
+    public InFormationAdapterTwo(FragmentManager fm , ArrayList<Fragment> fragments) {
         super(fm);
         this.fragments = fragments;
         titleArr.add("登录");
         titleArr.add("注册");
     }
 
-    public InFormationAdapter(FragmentManager fm) {
+    public InFormationAdapterTwo(FragmentManager fm) {
         super(fm);
     }
 

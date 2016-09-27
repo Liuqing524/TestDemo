@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/item_found_people_image"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@mipmap/ic_launcher"
+        android:layout_margin="10dp"/>
+    <TextView
+        android:id="@+id/item_found_people_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="嗷嗷啊"
+        android:textSize="15dp"
+        android:textColor="#000000"
+        android:layout_toRightOf="@+id/item_found_people_image"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"/>
+    <TextView
+        android:id="@+id/ppppppp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="关注领域:"
+        android:textSize="12dp"
+        android:textColor="#111111"
+        android:layout_toRightOf="@+id/item_found_people_image"
+        android:layout_below="@+id/item_found_people_name"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"/>
+    <TextView
+        android:id="@+id/item_found_people_field"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="555555555"
+        android:textSize="10dp"
+        android:layout_toRightOf="@+id/ppppppp"
+        android:layout_below="@+id/item_found_people_name"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"/>
+    <TextView
+        android:id="@+id/wwwaaaaaa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="投资阶段:"
+        android:textSize="12dp"
+        android:textColor="#111111"
+        android:layout_toRightOf="@+id/item_found_people_image"
+        android:layout_below="@+id/ppppppp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"/>
+    <TextView
+        android:id="@+id/item_found_people_equity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="9999999999"
+        android:textSize="10dp"
+        android:textColor="#FF9900"
+        android:layout_toRightOf="@+id/wwwaaaaaa"
+        android:layout_below="@+id/item_found_people_field"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="5dp"/>
+
+
+
+</RelativeLayout>

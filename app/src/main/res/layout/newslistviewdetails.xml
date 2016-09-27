@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+     android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:id="@+id/news_details_rlayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/news_details_imageview"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@mipmap/ic_launcher"
+                android:layout_margin="10dp"/>
+            <TextView
+                android:id="@+id/news_details_author"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="宇多田"
+                android:layout_toRightOf="@+id/news_details_imageview"
+                android:layout_marginTop="10dp"/>
+            <TextView
+                android:layout_width="50dp"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shapedetails"
+                android:text="作者"
+                android:textColor="#00CC00"
+                android:layout_toRightOf="@+id/news_details_author"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:text="ssssssssss"
+                android:layout_below="@+id/news_details_author"
+                android:layout_toRightOf="@id/news_details_imageview"
+                android:layout_marginTop="10dp"/>
+            <ImageButton
+                android:id="@+id/news_details_down_jian"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@mipmap/common_filter_arrow_down"
+                android:background="#00000000"
+                android:scaleType="fitXY"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="25dp"
+                android:layout_marginRight="10dp"/>
+
+        </RelativeLayout>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0.05dp"
+            android:src="@mipmap/kkkkkk"
+            android:background="#000000"/>
+        <TextView
+            android:id="@+id/news_details_titles"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5555555555"
+           android:layout_marginLeft="10dp"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:textSize="30dp"/>
+        <TextView
+            android:id="@+id/news_details_times"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="08:44"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"/>
+        <TextView
+            android:id="@+id/news_details_contents"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"/>
+        <Button
+            android:id="@+id/news_details_seek"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="寻求报道"
+            android:drawableLeft="@mipmap/news_icon_seek"
+            android:layout_gravity="center"
+            android:background="#00000000"
+            android:textColor="#6699EE"
+            android:layout_marginTop="20dp"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/kkkkkk"
+            android:background="#000000"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+           <ImageButton
+               android:id="@+id/news_details_icon_back"
+               android:layout_width="0dp"
+               android:layout_height="wrap_content"
+               android:layout_weight="1"
+               android:src="@mipmap/news_toolbar_icon_back"
+               android:background="#00000000"
+               />
+            <ImageButton
+                android:id="@+id/news_details_icon_comment"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@mipmap/news_toolbar_icon_comment"
+                android:background="#00000000"/>
+            <ImageButton
+                android:id="@+id/news_details_favorite"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@mipmap/news_toolbar_icon_favorite"
+                android:background="#00000000"/>
+            <ImageButton
+                android:id="@+id/news_details_share"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@mipmap/news_toolbar_icon_share"
+                android:background="#00000000"/>
+            <ImageButton
+                android:id="@+id/news_details_more"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@mipmap/news_toolbar_icon_more"
+                android:background="#00000000"/>
+        </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+    </LinearLayout>
+
+
+
+</ScrollView>

@@ -8,5 +8,25 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:textSize" >13dp</item>
     </style>
+    <style name="AnimBottom" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/push_bottom_in</item>
+        <item name="android:windowExitAnimation">@anim/push_bottom_out</item>
+    </style>
+
+   <style name="NewsDetailsDialog" parent="android:Theme.Dialog">
+       <item name="android:windowAnimationStyle">@style/AnimBottom</item>
+       <item name="android:windowFrame">@null</item>
+       <!--设置边框-->
+       <item name="android:windowIsFloating">true</item>
+       <!--浮现的位置-->
+       <item name="android:windowIsTranslucent">true</item>
+       <!--设置半透明-->
+       <item name="android:windowNoTitle">true</item>
+       <!--设置无标题-->
+       <item name="android:windowBackground">@android:color/transparent</item>
+       <!--背景透明-->
+       <item name="android:backgroundDimEnabled">true</item>
+       
+   </style>
 
 </resources>

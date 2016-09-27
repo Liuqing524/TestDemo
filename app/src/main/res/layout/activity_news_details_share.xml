@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/share_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#fff">
+        <Button
+            android:id="@+id/share_wechat"
+            android:layout_width="95dp"
+            android:layout_height="wrap_content"
+
+            android:text="微信好友"
+            android:background="#00000000"
+            android:drawableTop="@mipmap/common_icon_share_wechat"/>
+        <Button
+            android:id="@+id/share_moment"
+            android:layout_width="95dp"
+            android:layout_height="wrap_content"
+           android:layout_toRightOf="@+id/share_wechat"
+            android:text="微信朋友圈"
+            android:background="#00000000"
+            android:drawableTop="@mipmap/common_icon_share_moment"
+            />
+        <Button
+            android:id="@+id/details_share_weibo"
+            android:layout_width="95dp"
+            android:layout_height="wrap_content"
+           android:layout_toRightOf="@+id/share_moment"
+            android:text="新浪微博"
+            android:background="#00000000"
+            android:drawableTop="@mipmap/common_icon_share_weibo"
+            />
+        <Button
+            android:layout_width="95dp"
+            android:layout_height="wrap_content"
+           android:layout_toRightOf="@+id/details_share_weibo"
+            android:text="QQ 好友"
+            android:background="#00000000"
+            android:drawableTop="@mipmap/common_icon_share_qq"/>
+        <Button
+            android:id="@+id/share_alipay"
+            android:layout_width="95dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/share_wechat"
+            android:text="支付宝好友"
+            android:background="#00000000"
+            android:drawableTop="@mipmap/common_icon_share_alipay"/>
+        <Button
+            android:id="@+id/share_living"
+            android:layout_width="95dp"
+            android:layout_height="wrap_content"
+            android:text="生活圈"
+            android:background="#00000000"
+            android:layout_below="@+id/share_moment"
+            android:layout_toRightOf="@+id/share_alipay"
+            android:drawableTop="@mipmap/common_icon_share_living"/>
+        <Button
+            android:id="@+id/share_link"
+            android:layout_width="95dp"
+            android:layout_height="wrap_content"
+            android:text="复制链接"
+            android:background="#00000000"
+            android:layout_below="@+id/details_share_weibo"
+            android:layout_toRightOf="@+id/share_living"
+              android:drawableTop="@mipmap/common_icon_share_link"
+            />
+        <Button
+            android:id="@+id/share_back"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="取消"
+            android:background="#00000000"
+            android:layout_below="@+id/share_living"/>
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

@@ -1,16 +1,16 @@
-package com.example.dllo.testdemo.Activity;
+package com.example.dllo.testdemo.activity;
 
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 
-import com.example.dllo.testdemo.Adapter.MainAdapter;
-import com.example.dllo.testdemo.Base.BaseAty;
-import com.example.dllo.testdemo.Fragment.EquityFragment;
-import com.example.dllo.testdemo.Fragment.FoundFragment;
-import com.example.dllo.testdemo.Fragment.InformationFragment;
-import com.example.dllo.testdemo.Fragment.MyFragment;
-import com.example.dllo.testdemo.Fragment.NewsFragment;
+import com.example.dllo.testdemo.adapter.MainAdapter;
+import com.example.dllo.testdemo.base.BaseAty;
+import com.example.dllo.testdemo.fragment.EquityFragment;
+import com.example.dllo.testdemo.fragment.FoundFragment;
+import com.example.dllo.testdemo.fragment.InformationFragment;
+import com.example.dllo.testdemo.fragment.MyFragment;
+import com.example.dllo.testdemo.fragment.NewsFragment;
 import com.example.dllo.testdemo.R;
 
 import java.util.ArrayList;
