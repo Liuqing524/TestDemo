@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import cn.jpush.android.api.JPushInterface;
+
 /**
  * Created by dllo on 16/9/19.
  * Activity的积累
@@ -45,4 +47,15 @@ public abstract class BaseAty extends AppCompatActivity{
         return (T) findViewById(id);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        JPushInterface.onResume(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        JPushInterface.onPause(this);
+    }
 }

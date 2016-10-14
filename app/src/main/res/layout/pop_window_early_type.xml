@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+     <LinearLayout
+         android:layout_width="400dp"
+         android:layout_height="wrap_content"
+         android:orientation="vertical">
+         <TextView
+             android:id="@+id/pop_early_tv_all"
+             android:layout_width="match_parent"
+             android:layout_height="30dp"
+             android:text="全部"
+
+             android:background="#FFFFFF"
+             android:gravity="left|center"
+             android:paddingLeft="30dp"
+             android:textSize="15dp"
+             android:textColor="#000"/>
+         <TextView
+             android:id="@+id/pop_early_tv_demo"
+             android:layout_width="match_parent"
+             android:layout_height="30dp"
+             android:text="Demo Day"
+             android:gravity="center|left"
+             android:paddingLeft="30dp"
+             android:background="#FFFFFF"
+             android:textSize="15dp"
+             android:textColor="#000"/>
+         <TextView
+             android:id="@+id/pop_early_tv_kr"
+             android:layout_width="match_parent"
+             android:layout_height="30dp"
+             android:text="氪空间"
+             android:background="#FFFFFF"
+             android:gravity="center|left"
+             android:paddingLeft="30dp"
+             android:textSize="15dp"
+             android:textColor="#000"/>
+         <TextView
+             android:id="@+id/pop_early_tv_equity"
+             android:layout_width="match_parent"
+             android:layout_height="30dp"
+             android:text="股权投资"
+             android:background="#FFFFFF"
+             android:gravity="center|left"
+             android:paddingLeft="30dp"
+             android:textSize="15dp"
+             android:textColor="#000"/>
+    <TextView
+        android:id="@+id/pop_early_tv_service"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="#FFFFFF"
+        android:text="企业服务"
+        android:textSize="15dp"
+        android:paddingLeft="30dp"
+        android:textColor="#000"
+        android:gravity="center|left"/>
+    <TextView
+        android:id="@+id/pop_early_tv_quick"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:text="极速融资"
+        android:background="#FFFFFF"
+        android:textSize="15dp"
+        android:textColor="#000"
+        android:gravity="center|left"
+        android:paddingLeft="30dp"/>
+     </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+       android:background="#11544747"
+        />
+
+
+
+</LinearLayout>

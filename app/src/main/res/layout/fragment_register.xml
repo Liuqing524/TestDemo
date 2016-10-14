@@ -14,6 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:hint="+86  |  手机号"
+        android:background="@null"
         android:layout_marginTop="30dp"/>
      <Button
          android:layout_width="260dp"

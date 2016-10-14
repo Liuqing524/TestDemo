@@ -42,6 +42,7 @@ public class InformationActivity extends BaseAty{
     @Override
     protected void initData() {
         tb.getTabAt(0).setText("登录");
+
         tb.getTabAt(1).setText("注册");
 
     }

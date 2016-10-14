@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ImageButton
+            android:id="@+id/my_order_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/news_toolbar_icon_back"
+            android:background="#00000000"
+            android:layout_margin="10dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="我的订单"
+            android:textSize="20dp"
+            android:textColor="#000"
+            android:layout_gravity="center"
+            android:layout_marginLeft="110dp"/>
+    </LinearLayout>
+    <Button
+        android:background="#FF9999"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/my_order_aaaa"
+        android:text="功能即将转移,点击下载股权投资专属App"
+        android:textColor="#FF9900"
+        android:drawableRight="@mipmap/equity_list_icon_arrow"
+        />
+    <android.support.design.widget.TabLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/my_order_tab">
+    </android.support.design.widget.TabLayout>
+    <android.support.v4.view.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/my_order_pager">
+    </android.support.v4.view.ViewPager>
+
+
+</LinearLayout>

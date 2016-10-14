@@ -1,42 +1,69 @@
 package com.example.dllo.testdemo.activity;
 
+import android.content.Context;
+
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 /**
  * Created by dllo on 16/9/20.
  */
 public class VolleySingleton {
-    private static VolleySingleton mVolleySingleton;
-    // 把请求队列放到单利中,这样整个项目就只有一个RequestQueue
-    private RequestQueue mRequestQueue;
-
-
+    private static Context context;
+    private RequestQueue requestQueue;
+    private static VolleySingleton volleySingleton = new VolleySingleton();
+    public static VolleySingleton getVolleySingleton(){
+        return volleySingleton;
+    }
     private VolleySingleton(){
-        mRequestQueue = Volley.newRequestQueue(MyAPP.getContext());
+        context = MyAPP.getContext();
+        requestQueue = getRequestQueue();
+    }
+    public RequestQueue getRequestQueue(){
+        if (requestQueue == null){
+            synchronized (VolleySingleton.class){
+                if (requestQueue == null){
+                    requestQueue = Volley.newRequestQueue(context);
+                }
+            }
+        }
+        return requestQueue;
+    }
+    public <T> void _addRequest(Request<T> request){
+        requestQueue.add(request);
+    }
+    public <T> void _addRequest(Request<T> request,Object tag){
+        request.setTag(tag);
+        _addRequest(request);
+
+    }
+    public void _addRequest(String url, Response.Listener<String> listener, Response.ErrorListener errorListener){
+        StringRequest stringRequest = new StringRequest(url,listener,errorListener);
+        _addRequest(stringRequest);
+    }
+    public <T> void _addRequest(String url, Class<T> mClass, Response.Listener<T> listener, Response.ErrorListener errorListener){
+        GsonRequest<T> gsonRequest = new GsonRequest<T>(Request.Method.GET,url,mClass,listener,errorListener);
+        _addRequest(gsonRequest);
+
+    }
+    public static <T> void addRequest(Request<T> request){
+        getVolleySingleton()._addRequest(request);
+    }
+    public static <T> void addRequest(Request<T> request,Object tag){
+        getVolleySingleton()._addRequest(request,tag);
+    }
+    public static <T> void addRequest(String url, Response.Listener listener, Response.ErrorListener errorListener){
+        getVolleySingleton()._addRequest(url,listener,errorListener);
+    }
+    public static <T> void addRequest(String url,Class<T> mClass,Response.Listener listener,Response.ErrorListener errorListener){
+        getVolleySingleton()._addRequest(url,mClass,listener,errorListener);
+    }
+    public void removeRequest(Object tag){
+        requestQueue.cancelAll(tag);
     }
 
-    public static VolleySingleton getInstance() {
-        if (mVolleySingleton == null) {
-        synchronized (VolleySingleton.class){
-        if (mVolleySingleton == null) {
-            mVolleySingleton = new VolleySingleton();
-        }
-        }
-        }
-        return new VolleySingleton();
-    }
 
-    public RequestQueue getRequestQueue() {
-        return mRequestQueue;
-    }
-
-    /**
-     * 把请求加到请求队列里
-     * @param request 各种网络请求
-     */
-    public void addRequest(Request request) {
-        mRequestQueue.add(request);
-    }
 }

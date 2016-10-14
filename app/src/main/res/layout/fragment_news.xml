@@ -37,12 +37,18 @@
             android:background="#00000000"/>
 
     </RelativeLayout>
-    <ListView
+    <!--<ListView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:id="@+id/kr_news_lv">-->
+    <!--</ListView>-->
+    <com.handmark.pulltorefresh.library.PullToRefreshListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/kr_news_lv">
-    </ListView>
+        android:id="@+id/kr_news_lv"
+        >
 
+    </com.handmark.pulltorefresh.library.PullToRefreshListView>
     </LinearLayout>
     <include layout="@layout/news_drawer"
         android:layout_width="180dp"

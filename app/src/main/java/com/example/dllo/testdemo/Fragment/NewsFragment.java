@@ -1,6 +1,7 @@
 package com.example.dllo.testdemo.fragment;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.view.ViewPager;
@@ -23,13 +24,20 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.dllo.testdemo.R;
 import com.example.dllo.testdemo.activity.NewsListViewDetailsActivity;
+import com.example.dllo.testdemo.activity.VolleySingleton;
 import com.example.dllo.testdemo.adapter.NewsListViewAdapter;
 import com.example.dllo.testdemo.adapter.NewsShufflingAdapter;
 import com.example.dllo.testdemo.base.BaseFragment;
 import com.example.dllo.testdemo.base.StringUrl;
 import com.example.dllo.testdemo.bean.NewsListViewBean;
 import com.example.dllo.testdemo.bean.NewsShufflingBean;
+import com.example.dllo.testdemo.dialog.SerachActivity;
+import com.example.dllo.testdemo.dialog.VidoViewActivity;
 import com.google.gson.Gson;
+import com.handmark.pulltorefresh.library.PullToRefreshBase;
+import com.handmark.pulltorefresh.library.PullToRefreshListView;
+
+;
 
 /**
  * Created by dllo on 16/9/19.
@@ -46,15 +54,19 @@ public class NewsFragment extends BaseFragment implements View.OnClickListener {
     private ImageButton drawer;
 
     private NewsListViewAdapter newsListViewAdapter;
-    private ListView newsLv;
+    private PullToRefreshListView newsLv;
     private Handler handler;
     private Boolean mFalg = true;
     private Boolean flag = true;
     private ImageButton retu;
-    private Button newsAll, newsEarly, newsHeight, newsBig, newsEight, newsPeople, newsFriend, newsSerach;
+    private Button newsAll, newsEarly, newsHeight, newsBig, newsEight, newsPeople, newsFriend, newsSerach ,videoView;
     private TextView newsTitle;
     private ImageView imageView;
     private NewsListViewBean bean1;
+
+    private LinearLayout drawee_ll;
+
+    int id = 20;
 
 
     @Override
@@ -69,12 +81,13 @@ public class NewsFragment extends BaseFragment implements View.OnClickListener {
         drawer = bindView(R.id.kr_news_drawer);
 
         seracher = bindView(R.id.kr_news_seracher);
-        TextView newsTv = bindView(R.id.kr_news_tv);
+        final TextView newsTv = bindView(R.id.kr_news_tv);
         newsLv = bindView(R.id.kr_news_lv);
         drawerll = bindView(R.id.kr_news_ll);
         drawerLayout = bindView(R.id.news_drawer);
         newsTitle = bindView(R.id.kr_news_tv);
         imageView = bindView(R.id.news_details_imageview);
+        drawee_ll = bindView(R.id.kr_news_ll);
 
         retu = bindView(R.id.kr_news_drawer_ib);
         newsAll = bindView(R.id.kr_news_drawer_btn_all);
@@ -85,6 +98,7 @@ public class NewsFragment extends BaseFragment implements View.OnClickListener {
         newsPeople = bindView(R.id.kr_news_drawer_btn_people);
         newsFriend = bindView(R.id.kr_news_drawer_btn_friend);
         newsSerach = bindView(R.id.kr_news_drawer_btn_serach);
+        videoView = bindView(R.id.kr_news_drawer_btn_open_tv);
 
 
         drawer.setOnClickListener(this);
@@ -97,13 +111,21 @@ public class NewsFragment extends BaseFragment implements View.OnClickListener {
         newsPeople.setOnClickListener(this);
         newsFriend.setOnClickListener(this);
         newsSerach.setOnClickListener(this);
+        videoView.setOnClickListener(this);
+        drawee_ll.setOnClickListener(this);
+
+        seracher.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), SerachActivity.class));
+            }
+        });
+
         newsLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 NewsListViewBean.DataBean.DataBean1 dataBean1 = (NewsListViewBean.DataBean.DataBean1) parent.getItemAtPosition(position);
-
-
                 Intent intent = new Intent(getContext(), NewsListViewDetailsActivity.class);
                 //网址
                 String feedId = dataBean1.getFeedId();
@@ -137,13 +159,120 @@ public class NewsFragment extends BaseFragment implements View.OnClickListener {
         listRe();
         sleepLB();
 
-
+        //轮播图
         lbView = LayoutInflater.from(getContext()).inflate(R.layout.newfragmentlb, null);
         viewPager = (ViewPager) lbView.findViewById(R.id.news_fragment_lb);
 
-
         adapter = new NewsShufflingAdapter(getContext());
-        newsLv.addHeaderView(lbView);
+        newsLv.getRefreshableView().addHeaderView(lbView);
+        //newsLv.addHeaderView(lbView);
+         pullUpData();
+        newsLv.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ListView>() {
+               //下拉刷新
+            @Override
+            public void onPullDownToRefresh(PullToRefreshBase<ListView> refreshView) {
+                listRe();
+//                new AsyncTask<Void, Void, Void>() {
+//                    @Override
+//                    protected Void doInBackground(Void... params) {
+//                        try {
+//                            Thread.sleep(3000);
+//                           // onDestroy();
+//                            Thread.currentThread().interrupt();
+//
+//                        } catch (InterruptedException e) {
+//                            e.printStackTrace();
+//                        }
+//                        return null;
+//                    }
+//                    @Override
+//                    protected void onPostExecute(Void aVoid) {
+//                        super.onPostExecute(aVoid);
+//                        listRe();
+//                        newsLv.onRefreshComplete();//通知完成
+//                    }
+//
+//                }.execute();
+
+
+            }
+             //上拉加载
+            @Override
+            public void onPullUpToRefresh(PullToRefreshBase<ListView> refreshView) {
+                 new AsyncTask<Void , Void , Void>() {
+                     @Override
+                     protected Void doInBackground(Void... params) {
+                         try {
+                             Thread.sleep(3000);
+                         } catch (InterruptedException e) {
+                             e.printStackTrace();
+                         }
+                         return null;
+                     }
+
+                     @Override
+                     protected void onPostExecute(Void aVoid) {
+                         super.onPostExecute(aVoid);
+                       //  RequestQueue queue = Volley.newRequestQueue(getContext());
+
+                         id += 20;
+
+                         String pullUrl = "https://rong.36kr.com/api/mobi/news?pageSize=" + id + "&columnId=all&pagingAction=up";
+//                         StringRequest stringRequest = new StringRequest(pullUrl,
+//                                 new Response.Listener<String>() {
+//
+//                                     @Override
+//                                     public void onResponse(String response) {
+//                                         Gson gsonlist = new Gson();
+//                                         NewsListViewBean beanlist = gsonlist.fromJson(response, NewsListViewBean.class);
+//                                         newsListViewAdapter.setBean(beanlist);
+//                                         newsLv.setAdapter(newsListViewAdapter);
+//                                     }
+//                                 }, new Response.ErrorListener() {
+//                             @Override
+//                             public void onErrorResponse(VolleyError error) {
+//
+//                             }
+//                         });
+//                         queue.add(stringRequest);
+
+                         VolleySingleton.addRequest(pullUrl, NewsListViewBean.class, new Response.Listener<NewsListViewBean>() {
+
+                             @Override
+                             public void onResponse(NewsListViewBean response) {
+                                 newsListViewAdapter.setBean(response);
+                                 newsLv.setAdapter(newsListViewAdapter);
+                             }
+                         }, new Response.ErrorListener() {
+                             @Override
+                             public void onErrorResponse(VolleyError error) {
+
+                             }
+                         });
+                         newsLv.onRefreshComplete();
+
+                     }
+
+                 }.execute();
+            }
+        });
+
+    }
+    //设置刷新的状态
+    private void pullUpData() {
+        // 设置PullToRefreshListView的模式
+        // pullToRefreshListView.setMode(PullToRefreshBase.Mode.BOTH);
+
+        // 设置PullRefreshListView上提加载时的加载提示
+        newsLv.setMode(PullToRefreshBase.Mode.BOTH);
+        newsLv.getLoadingLayoutProxy(false, true).setPullLabel("上拉加载...");
+        newsLv.getLoadingLayoutProxy(false, true).setRefreshingLabel("正在加载...");
+        newsLv.getLoadingLayoutProxy(false, true).setReleaseLabel("松开加载更多...");
+
+        // 设置PullRefreshListView下拉加载时的加载提示
+        newsLv.getLoadingLayoutProxy(true, false).setPullLabel("下拉刷新...");
+        newsLv.getLoadingLayoutProxy(true, false).setRefreshingLabel("正在加载...");
+        newsLv.getLoadingLayoutProxy(true, false).setReleaseLabel("松开加载更多...");
     }
 
     //设置轮播图的时间
@@ -178,52 +307,82 @@ public class NewsFragment extends BaseFragment implements View.OnClickListener {
 
     //解析 listview 的方法
     private void listRe() {
-        RequestQueue queuelist = Volley.newRequestQueue(getContext());
-        StringRequest listRequest = new StringRequest("https://rong.36kr.com/api/mobi/news?pageSize=20&columnId=all&pagingAction=up", new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                Gson gsonlist = new Gson();
-                NewsListViewBean beanlist = gsonlist.fromJson(response, NewsListViewBean.class);
-                newsListViewAdapter.setBean(beanlist);
+//        RequestQueue queuelist = Volley.newRequestQueue(getContext());
+//        StringRequest listRequest = new StringRequest("https://rong.36kr.com/api/mobi/news?pageSize=20&columnId=all&pagingAction=up", new Response.Listener<String>() {
+//            @Override
+//            public void onResponse(String response) {
+//                Gson gsonlist = new Gson();
+//                NewsListViewBean beanlist = gsonlist.fromJson(response, NewsListViewBean.class);
+//                newsListViewAdapter.setBean(beanlist);
+//                newsLv.setAdapter(newsListViewAdapter);
+//                newsLv.onRefreshComplete();
+//
+//            }
+//        }, new Response.ErrorListener() {
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//                newsLv.onRefreshComplete();
+//
+//            }
+//        });
+//        queuelist.add(listRequest);
+        VolleySingleton.addRequest("https://rong.36kr.com/api/mobi/news?pageSize=20&columnId=all&pagingAction=up", NewsListViewBean.class,
+                new Response.Listener<NewsListViewBean>() {
+
+                    @Override
+                    public void onResponse(NewsListViewBean response) {
+                        newsListViewAdapter.setBean(response);
                 newsLv.setAdapter(newsListViewAdapter);
+                newsLv.onRefreshComplete();
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
 
-
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-
-            }
-        });
-        queuelist.add(listRequest);
-
+                    }
+                });
     }
 
     //解析轮播图的方法
     @Override
     protected void initData() {
-        RequestQueue queue = Volley.newRequestQueue(getContext());
-        StringRequest stringRequest = new StringRequest("https://rong.36kr.com/api/mobi/roundpics/v4", new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                Gson gson = new Gson();
-                NewsShufflingBean bean1 = gson.fromJson(response, NewsShufflingBean.class);
-                adapter.setBeen(bean1);
-                viewPager.setAdapter(adapter);
+//        RequestQueue queue = Volley.newRequestQueue(getContext());
+//        StringRequest stringRequest = new StringRequest("https://rong.36kr.com/api/mobi/roundpics/v4", new Response.Listener<String>() {
+//            @Override
+//            public void onResponse(String response) {
+//                Gson gson = new Gson();
+//                NewsShufflingBean bean1 = gson.fromJson(response, NewsShufflingBean.class);
+//                adapter.setBeen(bean1);
+//                viewPager.setAdapter(adapter);
+//
+//            }
+//        }, new Response.ErrorListener() {
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//
+//            }
+//        });
+//        queue.add(stringRequest);
 
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
+        VolleySingleton.addRequest("https://rong.36kr.com/api/mobi/roundpics/v4", NewsShufflingBean.class,
+                new Response.Listener<NewsShufflingBean>() {
 
-            }
-        });
-        queue.add(stringRequest);
+                    @Override
+                    public void onResponse(NewsShufflingBean response) {
+                        adapter.setBeen(response);
+                        viewPager.setAdapter(adapter);
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                });
 
 
     }
 
-    //抽屉方法
+    //抽屉数据方法
     private void drawerQueue(String url) {
         RequestQueue queue = Volley.newRequestQueue(getContext());
         StringRequest stringRequest = new StringRequest(url, new Response.Listener<String>() {
@@ -250,7 +409,7 @@ public class NewsFragment extends BaseFragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
 
-        newsLv.removeHeaderView(lbView);
+        newsLv.getRefreshableView().removeHeaderView(lbView);
 
         switch (v.getId()) {
             case R.id.kr_news_drawer:
@@ -261,7 +420,7 @@ public class NewsFragment extends BaseFragment implements View.OnClickListener {
                 break;
             case R.id.kr_news_drawer_btn_all:
                 newsTitle.setText("新闻");
-                newsLv.addHeaderView(lbView);
+                newsLv.getRefreshableView().addHeaderView(lbView);
                 drawerQueue(StringUrl.newsAllUrl);
                 drawerLayout.closeDrawers();
                 break;
@@ -301,7 +460,15 @@ public class NewsFragment extends BaseFragment implements View.OnClickListener {
                 drawerQueue(StringUrl.newsResachUrl);
                 drawerLayout.closeDrawers();
                 break;
+            case R.id.kr_news_drawer_btn_open_tv:
+                 startActivity(new Intent(getActivity() , VidoViewActivity.class));
+                drawerLayout.closeDrawers();
+                break;
+            case R.id.kr_news_ll:
+                
+                break;
         }
     }
+
 
 }

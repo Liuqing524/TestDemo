@@ -19,7 +19,7 @@ public class MyImageListener implements ImageLoader.ImageListener{
         if (bitmap == null){
             imageView.setImageResource(R.mipmap.ic_launcher);
         }else {
-
+            CircleDrawable circleDrawable =new CircleDrawable(bitmap);
             imageView.setImageBitmap(bitmap);
             AlphaAnimation alphaAnimation = new AlphaAnimation(0,1);
             alphaAnimation.setDuration(5000);

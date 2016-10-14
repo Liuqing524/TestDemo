@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/pop_early_tv_time_all"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="全部"
+
+            android:background="#FFFFFF"
+            android:gravity="left|center"
+            android:paddingLeft="30dp"
+            android:textSize="15dp"
+            android:textColor="#000"/>
+        <TextView
+            android:id="@+id/pop_early_tv_this"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="本周末"
+            android:gravity="center|left"
+            android:paddingLeft="30dp"
+            android:background="#FFFFFF"
+            android:textSize="15dp"
+            android:textColor="#000"/>
+        <TextView
+            android:id="@+id/pop_early_tv_this_week"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="本周"
+            android:background="#FFFFFF"
+            android:gravity="center|left"
+            android:paddingLeft="30dp"
+            android:textSize="15dp"
+            android:textColor="#000"/>
+        <TextView
+            android:id="@+id/pop_early_tv_next_week"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="下周"
+            android:background="#FFFFFF"
+            android:gravity="center|left"
+            android:paddingLeft="30dp"
+            android:textSize="15dp"
+            android:textColor="#000"/>
+
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:background="#11544747"
+        />
+
+</LinearLayout>

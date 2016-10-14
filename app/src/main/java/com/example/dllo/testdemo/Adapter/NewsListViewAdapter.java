@@ -22,7 +22,9 @@ public class NewsListViewAdapter extends BaseAdapter{
   private  NewsListViewBean bean;
     private Context context;
     Date date = new Date(System.currentTimeMillis());
-    SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");
+    long time1 =System.currentTimeMillis();
+
+    SimpleDateFormat format = new SimpleDateFormat("HH:mm");
 
     public NewsListViewAdapter(Context context) {
         this.context = context;
@@ -64,8 +66,15 @@ public class NewsListViewAdapter extends BaseAdapter{
 
         viewHolder.name.setText(bean.getData().getData().get(position).getUser().getName());
         viewHolder.columnname.setText(bean.getData().getData().get(position).getColumnName());
-        viewHolder.time.setText(format.format(date));
 
+
+
+
+        long str =bean.getData().getData().get(position).getPublishTime();
+
+      //  long finaltime = time1 - str;
+
+        viewHolder.time.setText(format.format(str));
         return convertView;
     }
     class ViewHolder{
@@ -82,4 +91,5 @@ public class NewsListViewAdapter extends BaseAdapter{
 
         }
     }
+
 }

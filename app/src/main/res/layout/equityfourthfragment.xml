@@ -32,7 +32,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="手机服务专家"
-            android:maxLength="20"
+            android:maxEms="10"
+            android:lines="1"
+            android:singleLine="true"
+
             android:layout_toRightOf="@id/kr_equity_fourth_logo"
             android:layout_below="@id/kr_equity_fourth_company_name"
             android:textSize="11dp"

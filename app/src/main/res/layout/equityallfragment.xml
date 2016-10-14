@@ -36,6 +36,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="手机服务专家"
+            android:maxEms="10"
+            android:lines="1"
+            android:singleLine="true"
             android:layout_toRightOf="@id/kr_equity_all_logo"
             android:layout_below="@id/kr_equity_all_company_name"
             android:textSize="11dp"
@@ -135,8 +138,10 @@
             android:layout_toRightOf="@id/kr_equity_all_desc"
             android:layout_below="@id/kr_eqyity_all_iv_line"
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="120dp"/>
-        <ImageButton
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="160dp"/>
+        <TextView
+            android:id="@+id/kr_equity_all_else_btn"
             android:layout_width="60dp"
             android:layout_height="30dp"
             android:src="@mipmap/gggggggg"
@@ -145,6 +150,7 @@
             android:layout_alignParentRight="true"
             android:layout_marginRight="10dp"
             android:scaleType="fitXY"
+            android:gravity="center"
             android:layout_marginTop="10dp"
             />
        <ProgressBar

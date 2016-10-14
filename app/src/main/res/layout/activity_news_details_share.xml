@@ -13,7 +13,6 @@
             android:id="@+id/share_wechat"
             android:layout_width="95dp"
             android:layout_height="wrap_content"
-
             android:text="微信好友"
             android:background="#00000000"
             android:drawableTop="@mipmap/common_icon_share_wechat"/>

@@ -18,6 +18,7 @@ import com.example.dllo.testdemo.bean.FoundLBean;
 import com.example.dllo.testdemo.dialog.FoundEarlyActivity;
 import com.example.dllo.testdemo.dialog.FoundEntrepreneursActivity;
 import com.example.dllo.testdemo.dialog.FoundEquityActivity;
+import com.example.dllo.testdemo.dialog.FoundKrSearchActivity;
 import com.example.dllo.testdemo.dialog.FoundPeopleActivity;
 import com.google.gson.Gson;
 
@@ -30,7 +31,7 @@ public class FoundFragment extends BaseFragment implements View.OnClickListener{
     private FoundLBAdapter adapter;
     private ViewPager viewPager;
     private LinearLayout foundPeople;
-    private Button entrepreneurs,equityer,foundEarly;
+    private Button entrepreneurs,equityer,foundEarly,krSearch;
 
     @Override
     protected int setLayout() {
@@ -46,11 +47,13 @@ public class FoundFragment extends BaseFragment implements View.OnClickListener{
         entrepreneurs = bindView(R.id.found_btn_entrepreneurs);
         equityer = bindView(R.id.found_btn_equityer);
         foundEarly = bindView(R.id.kr_found_item_first);
+        krSearch = bindView(R.id.kr_found_research_first);
 
        foundPeople.setOnClickListener(this);
         entrepreneurs.setOnClickListener(this);
         equityer.setOnClickListener(this);
         foundEarly.setOnClickListener(this);
+        krSearch.setOnClickListener(this);
     }
 
     @Override
@@ -91,6 +94,9 @@ public class FoundFragment extends BaseFragment implements View.OnClickListener{
                 break;
             case R.id.kr_found_item_first:
                startActivity(new Intent(getContext() , FoundEarlyActivity.class));
+                break;
+            case R.id.kr_found_research_first:
+                    startActivity(new Intent(getActivity() , FoundKrSearchActivity.class));
                 break;
         }
     }

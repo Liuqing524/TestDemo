@@ -1,6 +1,7 @@
 package com.example.dllo.testdemo.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -68,15 +69,25 @@ public class EquityAllAdapter extends BaseAdapter{
         viewHolder.adnametwo.setText(bean.getData().getData().get(position).getCf_advantage().get(1).getAdname());
         viewHolder.adcontenttwo.setText(bean.getData().getData().get(position).getCf_advantage().get(1).getAdcontent());
         viewHolder.desc.setText(bean.getData().getData().get(position).getFundStatus().getDesc());
-
         viewHolder.offer.setText("已募资" + (int) (bean.getData().getData().get(position).getRate() * 100) + "%");
         viewHolder.progressBar.setProgress((int) (bean.getData().getData().get(position).getRate() * 100));
+        if (bean.getData().getData().get(position).getFundStatus().getDesc().equals("融资成功") ||
+                bean.getData().getData().get(position).getFundStatus().getDesc().equals("募资完成")) {
+            viewHolder.else_btn.setText("去看看");
+            viewHolder.else_btn.setBackgroundColor(Color.WHITE);
+
+        }else {
+            viewHolder.else_btn.setText("认购");
+            viewHolder.else_btn.setBackgroundColor(0xE0F99304);
+
+        }
         return convertView;
     }
     class ViewHolder{
         ImageView logo,img;
-        TextView companyname,companybrief,leadname,adnameone,adcontentone,adnametwo,adcontenttwo,desc,offer;
+        TextView companyname,companybrief,leadname,adnameone,adcontentone,adnametwo,adcontenttwo,desc,offer,else_btn;
         ProgressBar progressBar;
+
         public ViewHolder(View view) {
             logo = (ImageView) view.findViewById(R.id.kr_equity_all_logo);
             img = (ImageView) view.findViewById(R.id.kr_equity_all_first_img);
@@ -90,6 +101,7 @@ public class EquityAllAdapter extends BaseAdapter{
             desc = (TextView) view.findViewById(R.id.kr_equity_all_desc);
             offer = (TextView) view.findViewById(R.id.kr_equity_all_offer);
             progressBar = (ProgressBar) view.findViewById(R.id.kr_equity_all_pb);
+            else_btn = (TextView) view.findViewById(R.id.kr_equity_all_else_btn);
 
         }
     }

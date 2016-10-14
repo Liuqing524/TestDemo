@@ -43,7 +43,7 @@ public class AllFragment extends BaseFragment{
             @Override
             public void onResponse(String response) {
                 Gson gson = new Gson();
-                EquityAllBean bean = gson.fromJson(response , EquityAllBean.class);
+                EquityAllBean bean = gson.fromJson(response, EquityAllBean.class);
                 equityAllAdapter.setBean(bean);
                 equityListview.setAdapter(equityAllAdapter);
 

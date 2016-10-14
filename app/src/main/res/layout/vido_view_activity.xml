@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <FrameLayout
+        android:id="@+id/video_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.universalvideoview.UniversalVideoView
+            android:id="@+id/video_View"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            app:uvv_autoRotation="true"
+            app:uvv_fitXY="false"
+            />
+        <com.universalvideoview.UniversalMediaController
+            android:id="@+id/media_controllar"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            app:uvv_scalable="true">
+        </com.universalvideoview.UniversalMediaController>
+    </FrameLayout>
+    <LinearLayout
+        android:id="@+id/btn_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+        <Button
+            android:id="@+id/video_start"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/uvv_light_gray"
+            android:gravity="center"
+            android:text="开始播放"/>
+        <Button
+            android:id="@+id/video_close"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/uvv_light_gray"
+            android:gravity="center"
+            android:text="关闭视频"/>
+        <TextView
+            android:id="@+id/introduction"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/uvv_gray"
+            android:gravity="center"
+            android:text="欢迎收看"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>

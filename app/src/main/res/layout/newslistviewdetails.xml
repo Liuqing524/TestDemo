@@ -34,21 +34,22 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"/>
             <TextView
+             android:id="@+id/news_details_berif"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:maxLines="1"
-                android:text="ssssssssss"
+
                 android:layout_below="@+id/news_details_author"
                 android:layout_toRightOf="@id/news_details_imageview"
                 android:layout_marginTop="10dp"/>
             <ImageButton
                 android:id="@+id/news_details_down_jian"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@mipmap/common_filter_arrow_down"
-                android:background="#00000000"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:background="@drawable/newsdetailsjian"
                 android:scaleType="fitXY"
                 android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
                 android:layout_marginTop="25dp"
                 android:layout_marginRight="10dp"/>
 
